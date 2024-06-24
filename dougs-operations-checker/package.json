@@ -1,0 +1,27 @@
+{
+  "name": "dougs-operations-checker",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">= 20.10.0"
+  },
+  "scripts": {
+    "dev": "sls offline --reloadHandler --disableCookieValidation --stage local",
+    "generate-test-data": "node test/generateTestData.js",
+    "package": "serverless package --stage local",
+    "lint:fix": "eslint . --ext .ts --fix"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.138",
+    "serverless": "3.38.0",
+    "serverless-bundle": "6.1.0",
+    "serverless-offline": "13.5.1",
+    "serverless-offline-ssm": "6.2.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "aws-lambda": "1.0.7",
+    "faker": "6.6.6",
+    "lambda-log": "3.1.0"
+  }
+}
