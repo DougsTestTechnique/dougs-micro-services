@@ -96,9 +96,7 @@ Le déploiement est géré par un workflow GitHub Actions défini dans le fichie
 
 Pour déclencher le déploiement, vous devez pousser vos modifications sur la branche principale ou une branche spécifiée dans le fichier de workflow.
 
-Il faut ensuite ce rendre dans Actions (menu), 
-selectionner le workflow `Dougs Operations Checker Staging`,
-CLiquer sur `Run worklow`
+Il faut ensuite ce rendre dans `Actions > Dougs Operations Checher ${stage} > Run workflow`
 
 ### Configuration des Credentials AWS
 
