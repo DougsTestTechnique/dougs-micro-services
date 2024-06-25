@@ -1,0 +1,50 @@
+name: Dougs Operations Checker Staging
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    env:
+      TF_IN_AUTOMATION: true
+      TF_VAR_ENVIRONMENT: staging
+      SERVERLESS_REGION: ${{vars.STAGING_SERVERLESS_REGION}}
+      SERVERLESS_AWS_ACCOUNT_ID: ${{vars.STAGING_SERVERLESS_AWS_ACCOUNT_ID}}
+      APP_URL: ${{vars.STAGING_APP_URL}}
+      APPLICATION_BUCKET: ${{vars.STAGING_APPLICATION_BUCKET}}
+
+
+    permissions:
+      id-token: write # required to use OIDC authentication
+      contents: read # required to checkout the code from the repo 
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Set vars to env
+        env:
+          VARS_JSON: ${{ toJSON(vars) }}
+        run: |
+          echo "$VARS_JSON" | jq -r 'keys[] as $k | "\($k)=\(.[$k])"' >> $GITHUB_ENV
+
+      # be sure to authenticate
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: ${{secrets.AWS_DEPLOYMENT_ROLE_ARN}}
+          role-duration-seconds: 3600
+          aws-region: eu-west-1
+
+
+      - name: Deploy Back
+        run: cd ./ && yarn && yarn serverless deploy --stage ${{ env.TF_VAR_ENVIRONMENT }} --region eu-west-1
