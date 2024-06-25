@@ -2,7 +2,7 @@
 
 ## Introduction
 
-`dougs-micro-services` eest un projet Serverless conçu pour démontrer la capacité à configurer et déployer des fonctions Lambda sur AWS. Ce projet utilise Node.js et divers paquets pour faciliter le développement, le test et le déploiement des fonctions Lambda. Il est construit sous une architecture micro-services, permettant de rassembler uniquement certaines fonctionnalités dans des services isolés. Cela permet une meilleure collaboration sur le projet, et également une maintenance plus facile. Dans cet exemple, un micro-service a été créé afin de répondre à un test technique soumis par l'équipe technique de Dougs.
+`dougs-micro-services` est un projet Serverless conçu pour démontrer la capacité à configurer et déployer des fonctions Lambda sur AWS. Ce projet utilise Node.js et divers paquets pour faciliter le développement, le test et le déploiement des fonctions Lambda. Il est construit sous une architecture micro-services, permettant de rassembler uniquement certaines fonctionnalités dans des services isolés. Cela permet une meilleure collaboration sur le projet, et également une maintenance plus facile. Dans cet exemple, un micro-service a été créé afin de répondre à un test technique soumis par l'équipe technique de Dougs.
 
 ## Prérequis
 

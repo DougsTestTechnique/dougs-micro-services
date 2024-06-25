@@ -6,10 +6,9 @@ import { compareMovementsAndBalances } from './utils/compareMovementsAndBalances
 export async function handle(event: APIGatewayEvent): Promise<APIGatewayProxyResult> {
   try {
     log.info('operations-checker Event', event);
-
     const data = JSON.parse(event.body || '{}');
-    const movements: Movement[] = data.movements;
-    const balances: Balance[] = data.balances;
+    const movements: Movement[] = data.movements[0].movements;
+    const balances: Balance[] = data.balances[0].balances;
 
     if (!movements || !balances) {
       log.error("Error", { type: "MISSING_DATA", movements, balances });

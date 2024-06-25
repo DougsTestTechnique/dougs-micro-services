@@ -8931,11 +8931,6 @@ serverless-bundle@6.1.0:
     webpack-node-externals "^2.5.2"
     webpack-permissions-plugin "^1.0.8"
 
-serverless-offline-ssm@6.2.0:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/serverless-offline-ssm/-/serverless-offline-ssm-6.2.0.tgz#f2db290a72631629579ce5f940ed76f254f96653"
-  integrity sha512-Af7JeLbU4OHAx7ZgAs2OLP2DGKyp/g45rX7SWQ8KiBzn47jme+MqN+GOV6qd5oZ8V9khd3p62+RueHR3ezEZZQ==
-
 serverless-offline@13.5.1:
   version "13.5.1"
   resolved "https://registry.yarnpkg.com/serverless-offline/-/serverless-offline-13.5.1.tgz#3d480684120ffcf6fb55abd0a8eba147d3e642c2"

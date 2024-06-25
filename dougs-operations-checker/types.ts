@@ -6,16 +6,16 @@ export interface Movement {
   }
   
   export interface Balance {
-    date: string;
+    date: Date;
     balance: number;
   }
   
   export interface Anomaly {
-    date: string;
+    date: Date;
     expected: number;
     actual: number;
     difference: number;
     movements: Movement[];
-    missingTransactions?: string;
+    message?: string;
   }
   
