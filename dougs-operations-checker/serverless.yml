@@ -1,0 +1,44 @@
+service: dougs-operations-checker
+
+useDotenv: true
+
+frameworkVersion: '=3.38'
+
+plugins:
+  - serverless-bundle
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ${env:SERVERLESS_REGION}
+  stage: ${opt:stage}
+  environment:
+    SERVERLESS_REGION: ${env:SERVERLESS_REGION}
+    SERVERLESS_AWS_ACCOUNT_ID: ${env:SERVERLESS_AWS_ACCOUNT_ID}
+    APP_URL: ${env:APP_URL}
+    APPLICATION_BUCKET: ${env:APPLICATION_BUCKET}
+
+package:
+  individually: true
+
+custom:
+  serverless-offline:
+    httpPort: 3001
+  bundle:
+    linting: true
+    caching: true
+
+functions:
+  operations-checker:
+    handler: operations-checker.handle
+    logRetentionInDays: 14
+    timeout: 30
+    memorySize: 256
+    description: Generate rapport
+    environment:
+      ENVIRONMENT: ${opt:stage, 'local'}
+    events:
+      - http:
+          path: api/operations-checker
+          method: post
