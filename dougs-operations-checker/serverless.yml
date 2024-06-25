@@ -17,7 +17,6 @@ provider:
     SERVERLESS_REGION: ${env:SERVERLESS_REGION}
     SERVERLESS_AWS_ACCOUNT_ID: ${env:SERVERLESS_AWS_ACCOUNT_ID}
     APP_URL: ${env:APP_URL}
-    APPLICATION_BUCKET: ${env:APPLICATION_BUCKET}
 
 package:
   individually: true
