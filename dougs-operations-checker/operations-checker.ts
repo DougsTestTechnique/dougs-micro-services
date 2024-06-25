@@ -1,11 +1,11 @@
 import { APIGatewayEvent, APIGatewayProxyResult } from "aws-lambda";
 import log from 'lambda-log';
-import { Movement, Balance, Anomaly } from './types';
+import { Movement, Balance } from './types';
 import { compareMovementsAndBalances } from './utils/compareMovementsAndBalances';
 
 export async function handle(event: APIGatewayEvent): Promise<APIGatewayProxyResult> {
   try {
-    log.info('Log Event', event);
+    log.info('operations-checker Event', event);
 
     const data = JSON.parse(event.body || '{}');
     const movements: Movement[] = data.movements;
