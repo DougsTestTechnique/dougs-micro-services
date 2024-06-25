@@ -8,16 +8,18 @@
     "dev": "sls offline --reloadHandler --disableCookieValidation --stage local",
     "generate-test-data": "node test/generateTestData.mjs",
     "package": "serverless package --stage local",
-    "lint:fix": "eslint . --ext .ts --fix"
+    "lint:fix": "eslint --config eslint.config.js . --fix"
   },
   "license": "MIT",
   "devDependencies": {
+    "@faker-js/faker": "8.4.1",
     "@types/aws-lambda": "8.10.138",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^9.5.0",
     "serverless": "3.38.0",
     "serverless-bundle": "6.1.0",
-    "serverless-offline": "13.5.1",
-    "serverless-offline-ssm": "6.2.0",
-    "@faker-js/faker": "8.4.1"
+    "serverless-offline": "13.5.1"
   },
   "dependencies": {
     "aws-lambda": "1.0.7",
