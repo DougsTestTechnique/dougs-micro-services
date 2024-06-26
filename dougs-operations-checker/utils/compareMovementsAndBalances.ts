@@ -1,5 +1,5 @@
 import { Movement, Balance, Anomaly } from '../types';
-import { formatReadableDate } from './formatDate';
+import { formatReadableDate } from './formatDateHelper';
 
 // Function to filter relevant movements for a given balance date
 function getRelevantMovements(movements: Movement[], cumulativeMovements: Movement[], balanceDate: Date): Movement[] {
