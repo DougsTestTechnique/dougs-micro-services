@@ -111,6 +111,19 @@ Les secrets nécessaires sont :
 
 Si vous souhaitez déployer manuellement, vous pouvez utiliser la commande suivante après avoir configuré vos credentials AWS localement :
 
+
+### Pour Aller Plus Loin
+
+Les améliorations sur ce projet de test sont nombreuses
+
+1) Un meilleur moteur de recherche d'anomalies et de doublons, plus polyvalent
+
+2) Des tests plus avancées avec JEST
+
+3) L'utilisation de opentofu (https://opentofu.org/) fork de Terraform, outil open-source d'infrastructure qui permet de définir des ressources cloud et on-premises dans des fichiers de configuration.
+
+4) La sécurisation via CORS provenant du front-end
+
 ```bash
 serverless deploy
 
