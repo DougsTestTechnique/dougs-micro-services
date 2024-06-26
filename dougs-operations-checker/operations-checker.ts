@@ -7,8 +7,8 @@ export async function handle(event: APIGatewayEvent): Promise<APIGatewayProxyRes
   try {
     log.info('operations-checker Event', event);
     const data = JSON.parse(event.body || '{}');
-    const movements: Movement[] = data.movements[0].movements;
-    const balances: Balance[] = data.balances[0].balances;
+    const movements: Movement[] = data.movements[0];
+    const balances: Balance[] = data.balances[0];
 
     if (!movements || !balances) {
       log.error("Error", { type: "MISSING_DATA", movements, balances });

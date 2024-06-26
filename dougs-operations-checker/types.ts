@@ -1,6 +1,6 @@
 export interface Movement {
-    id: string;
-    date: string;
+    id: number;
+    date: Date;
     label: string;
     amount: number;
   }

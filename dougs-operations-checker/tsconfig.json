@@ -11,6 +11,8 @@
         "./src/*"
       ],
       "got": ["./node_modules/got/dist/source"]
-    },
+    }
   },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules"]
 }
