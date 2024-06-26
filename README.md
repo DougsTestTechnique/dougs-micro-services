@@ -45,11 +45,14 @@ yarn lint:fix
 
 ### Dépendances de développement
 
-- @types/aws-lambda: Fournit les types TypeScript pour AWS Lambda, permettant une meilleure autocomplétion et vérification des types.
-- serverless: Le framework Serverless, utilisé pour déployer et gérer les fonctions Lambda et autres ressources AWS.
-- serverless-bundle: Un plugin Serverless qui simplifie la configuration de Webpack, TypeScript, ESLint, et Jest. Il permet de gérer efficacement le bundling, le linting et le testing.
-- serverless-offline: Permet de simuler les fonctions Lambda et les API Gateway localement, facilitant ainsi le développement et le test sans avoir besoin de déployer sur AWS.
-- @faker-js/faker: Utilisé pour générer des données factices réalistes pour les tests.
+- @faker-js/faker: Une bibliothèque permettant de générer des données de test réalistes et aléatoires. Utilisée pour simuler des données telles que des noms, des adresses, des dates, et bien plus encore, ce qui est très utile pour le développement et les tests.
+- @types/aws-lambda: Fournit les définitions de type TypeScript pour AWS Lambda. Cela aide à bénéficier de l'auto-complétion et de la vérification des types lors de l'écriture de fonctions Lambda avec TypeScript.
+- @types/jest: Contient les définitions de type TypeScript pour Jest, un framework de test JavaScript. Cela permet une intégration fluide avec TypeScript pour l'écriture et l'exécution de tests unitaires.
+- jest: Un framework de test JavaScript utilisé pour les tests unitaires et les tests d'intégration. Jest offre un environnement de test complet avec des assertions intégrées, des rapports de couverture de code, et des capacités de moquerie.
+- serverless: Un framework pour déployer des applications sans serveur. Il permet de gérer l'infrastructure cloud de manière déclarative, simplifiant ainsi le développement et le déploiement des fonctions Lambda, des API Gateway, et d'autres ressources AWS.
+- serverless-bundle: Un plugin pour le framework Serverless qui simplifie la configuration et l'utilisation de Webpack pour empaqueter les fonctions Lambda. Il inclut également des outils pour les tests et le linting.
+- serverless-offline: Un plugin pour le framework Serverless qui permet de simuler l'environnement AWS Lambda localement. Utile pour le développement et le test des fonctions Lambda sans avoir besoin de déployer sur AWS.
+- ts-jest: Un préprocesseur Jest pour TypeScript. Il permet à Jest de comprendre et de transformer les fichiers TypeScript, facilitant ainsi l'écriture de tests pour les applications TypeScript.
 
 ### Dépendances
 
@@ -111,6 +114,9 @@ Les secrets nécessaires sont :
 
 Si vous souhaitez déployer manuellement, vous pouvez utiliser la commande suivante après avoir configuré vos credentials AWS localement :
 
+bash
+serverless deploy
+
 ### Pour Aller Plus Loin
 
 Les améliorations sur ce projet de test sont nombreuses
@@ -122,9 +128,6 @@ Les améliorations sur ce projet de test sont nombreuses
 3) L'utilisation de opentofu (https://opentofu.org/) fork de Terraform, outil open-source d'infrastructure qui permet de définir des ressources cloud et on-premises dans des fichiers de configuration.
 
 4) La sécurisation via CORS provenant du front-end
-
-```bash
-serverless deploy
 
 **Licence**
 
