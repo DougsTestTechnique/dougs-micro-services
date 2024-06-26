@@ -111,7 +111,6 @@ Les secrets nécessaires sont :
 
 Si vous souhaitez déployer manuellement, vous pouvez utiliser la commande suivante après avoir configuré vos credentials AWS localement :
 
-
 ### Pour Aller Plus Loin
 
 Les améliorations sur ce projet de test sont nombreuses
