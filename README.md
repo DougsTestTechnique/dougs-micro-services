@@ -123,7 +123,7 @@ Les améliorations sur ce projet de test sont nombreuses
 
 1) Un meilleur moteur de recherche d'anomalies et de doublons, plus polyvalent
 
-2) Des tests plus avancées avec JEST
+2) Des tests plus avancées avec JEST (Petit soucis de config, je suis dessus)
 
 3) L'utilisation de opentofu (https://opentofu.org/) fork de Terraform, outil open-source d'infrastructure qui permet de définir des ressources cloud et on-premises dans des fichiers de configuration.
 
