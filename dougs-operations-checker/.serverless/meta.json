@@ -1,0 +1,118 @@
+{
+  "/Users/nicolasmazzoleni/Desktop/dougs-microservices/dougs-operations-checker": {
+    "versionSfCore": null,
+    "versionFramework": "4.1.5",
+    "isWithinCompose": false,
+    "isCompose": false,
+    "composeOrgName": null,
+    "composeServiceName": null,
+    "servicePath": "/Users/nicolasmazzoleni/Desktop/dougs-microservices/dougs-operations-checker",
+    "serviceConfigFileName": "serverless.yml",
+    "service": {
+      "service": "dougs-operatoins-checker",
+      "useDotenv": true,
+      "frameworkVersion": "=3.38",
+      "plugins": [
+        "serverless-bundle",
+        "serverless-offline",
+        "serverless-offline-ssm"
+      ],
+      "provider": {
+        "name": "aws",
+        "runtime": "nodejs20.x",
+        "region": "local",
+        "deploymentBucket": {
+          "name": "${ssm:/local/dougs-operations-checker/deployment_bucket}"
+        },
+        "iam": {
+          "role": "${ssm:/local/dougs-operations-checker/lambda_arn_role}"
+        },
+        "apiGateway": {
+          "restApiId": "${ssm:/local/dougs-operations-checker/api_gateway_id}",
+          "restApiRootResourceId": "${ssm:/local/dougs-operations-checker/api_gateway_root_id}"
+        }
+      },
+      "package": {
+        "individually": true
+      },
+      "custom": {
+        "serverless-offline": {
+          "httpPort": 3001
+        },
+        "serverless-offline-ssm": {
+          "stages": [
+            "local"
+          ],
+          "ssm": {
+            "/local/dougs-operations-checker/api_is_private": "false",
+            "/local/dougs-operations-checker/bucket": "not-used-locally",
+            "/local/dougs-operations-checker/deployment_bucket": "not-used-locally",
+            "/local/dougs-operations-checker/lambda_arn_role": "not-used-locally",
+            "/local/dougs-operations-checker/api_gateway_id": "not-used-locally",
+            "/local/dougs-operations-checker/api_gateway_root_id": "not-used-locally"
+          }
+        }
+      },
+      "functions": {
+        "email-checker": {
+          "handler": "email-checker.handle",
+          "logRetentionInDays": 14,
+          "timeout": 30,
+          "memorySize": 256,
+          "description": "Iframe Generator",
+          "environment": {
+            "ENVIRONMENT": "local"
+          },
+          "events": [
+            {
+              "http": {
+                "path": "api/email-checker",
+                "method": "post",
+                "private": "${ssm:/local/dougs-operations-checker/api_is_private}"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "serviceRawFile": "service: dougs-operatoins-checker\n\nuseDotenv: true\n\nframeworkVersion: '=3.38'\n\nplugins:\n  - serverless-bundle\n  - serverless-offline\n  - serverless-offline-ssm\n\nprovider:\n  name: aws\n  runtime: nodejs20.x\n  region: ${opt:region, 'local'}\n  deploymentBucket:\n    name: ${ssm:/${opt:stage, 'local'}/dougs-operations-checker/deployment_bucket}\n  iam:\n    role: ${ssm:/${opt:stage, 'local'}/dougs-operations-checker/lambda_arn_role}\n  apiGateway:\n    restApiId: ${ssm:/${opt:stage, 'local'}/dougs-operations-checker/api_gateway_id}\n    restApiRootResourceId: ${ssm:/${opt:stage, 'local'}/dougs-operations-checker/api_gateway_root_id}\n\npackage:\n  individually: true\n\ncustom:\n  serverless-offline:\n    httpPort: 3001\n  serverless-offline-ssm:\n    stages:\n      - local\n    ssm:\n      '/local/dougs-operations-checker/api_is_private': 'false'\n      '/local/dougs-operations-checker/bucket': 'not-used-locally'\n      '/local/dougs-operations-checker/deployment_bucket': 'not-used-locally'\n      '/local/dougs-operations-checker/lambda_arn_role': 'not-used-locally'\n      '/local/dougs-operations-checker/api_gateway_id': 'not-used-locally'\n      '/local/dougs-operations-checker/api_gateway_root_id': 'not-used-locally'\n\nfunctions:\n  email-checker:\n    handler: email-checker.handle\n    logRetentionInDays: 14\n    timeout: 30\n    memorySize: 256\n    description: Iframe Generator\n    environment:\n      ENVIRONMENT: ${opt:stage, 'local'}\n    events:\n      - http:\n          path: api/email-checker\n          method: post\n          private: ${ssm:/${opt:stage, 'local'}/dougs-operations-checker/api_is_private}",
+    "command": [
+      "offline"
+    ],
+    "options": {
+      "reloadHandler": true,
+      "disableCookieValidation": true,
+      "stage": "local"
+    },
+    "error": {
+      "message": "Failed to resolve variable '/local/dougs-operations-checker/deployment_bucket' with resolver 'ssm' and provider 'aws': TypeError: Invalid URL",
+      "stack": "Error: Failed to resolve variable '/local/dougs-operations-checker/deployment_bucket' with resolver 'ssm' and provider 'aws': TypeError: Invalid URL\n    at #resolveKey (file:///Users/nicolasmazzoleni/.serverless/releases/4.1.5/package/dist/sf-core.js:1085:43468)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n    at async _ResolverManager.resolve (file:///Users/nicolasmazzoleni/.serverless/releases/4.1.5/package/dist/sf-core.js:1085:48375)\n    at async #handlePlaceholderNode (file:///Users/nicolasmazzoleni/.serverless/releases/4.1.5/package/dist/sf-core.js:1085:47229)\n    at async file:///Users/nicolasmazzoleni/.serverless/releases/4.1.5/package/dist/sf-core.js:1085:45364\n    at async processNodeAndHandleCompletion (file:///Users/nicolasmazzoleni/.serverless/releases/4.1.5/package/dist/sf-core.js:1085:38403)",
+      "code": "RESOLVER_RESOLVE_VARIABLE_ERROR"
+    },
+    "machineId": "cfe2ab69e9b043cf92ff070920e60b44",
+    "accessKeyV2": "<REDACTED>",
+    "accessKeyV1": "<REDACTED>",
+    "orgId": "219c7fba-623d-4ff3-997f-61cdf62d85df",
+    "orgName": "petitionsai",
+    "userId": "kK7PnL6nSHpPHdpPdD",
+    "dashboard": {
+      "isEnabledForService": false,
+      "requiredAuthentication": false,
+      "orgFeaturesInUse": null,
+      "orgObservabilityIntegrations": null,
+      "serviceAppId": null,
+      "serviceProvider": null,
+      "instanceParameters": null
+    },
+    "userName": "petitionsai",
+    "subscription": null,
+    "userEmail": "mazzoleni.nicolas@gmail.com",
+    "serviceProviderAwsCredentials": "<REDACTED>",
+    "serviceProviderAwsAccountId": "891377372540",
+    "serviceProviderAwsCfStackId": null,
+    "serviceProviderAwsCfStackCreated": null,
+    "serviceProviderAwsCfStackUpdated": null,
+    "serviceProviderAwsCfStackStatus": null,
+    "serviceProviderAwsCfStackOutputs": null
+  }
+}
