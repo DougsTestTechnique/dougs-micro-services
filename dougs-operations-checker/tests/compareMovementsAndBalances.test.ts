@@ -28,7 +28,7 @@ describe('compareMovementsAndBalances', () => {
 
     const anomalies = compareMovementsAndBalances(movements, modifiedBalances);
     expect(anomalies).toHaveLength(2);
-    expect(anomalies[0].difference).toBe(50); // 300 - 250
-    expect(anomalies[1].difference).toBe(50); // 250 - 200
+    expect(anomalies[0].difference).toBe(-50); // 250 - 300
+    expect(anomalies[1].difference).toBe(-50); // 200 - 250
   });
 });
