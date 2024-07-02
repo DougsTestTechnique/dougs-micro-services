@@ -8,7 +8,7 @@
     "dev": "sls offline --reloadHandler --disableCookieValidation --stage local",
     "generate-test-data": "node tests/generateTestData.mjs",
     "package": "serverless package --stage local",
-    "lint:fix": "eslint --config eslint.config.js . --fix",
+    "lint": "eslint --config eslint.config.js .",
     "test": "jest"
   },
   "license": "MIT",
