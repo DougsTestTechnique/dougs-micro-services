@@ -31,7 +31,7 @@ Voici les scripts disponibles pour gérer le projet :
 - dev: Lance le projet en mode développement avec Serverless Offline.
 - generate-test-data: Génère des données de test en utilisant Faker.js.
 - package: Prépare le projet pour le déploiement en packagant les fichiers nécessaires.
-- lint:fix: Analyse et corrige automatiquement les problèmes de style de code.
+- lint Analyse les problèmes de style de code.
 
 yarn dev
 
@@ -39,7 +39,7 @@ yarn generate-test-data
 
 yarn package
 
-yarn lint:fix
+yarn lint
 
 ## Choix des paquet
 
